@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gladiator Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; background: black; }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Load scripts in EXACTLY this order -->
+    <script src="GameObject.js"></script>
+    <script src="ObjectCollider.js"></script>
+    <script src="Weapon.js"></script>
+    <script src="Sword.js"></script>
+    <script src="GladiatorTestOne.js"></script>
+    <script src="GameManager.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = 800;
+            canvas.height = 400;
+            
+            try {
+                const gameManager = new GameManager(ctx);
+                
+                // Simple game loop
+                function gameLoop() {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    gameManager.draw();
+                    requestAnimationFrame(gameLoop);
+                }
+                
+                gameLoop();
+                console.log("Game started successfully!");
+            } catch (error) {
+                console.error("Game failed to start:", error);
+                // Draw error message on canvas
+                ctx.fillStyle = 'white';
+                ctx.font = '20px Arial';
+                ctx.fillText('Game Error: Check console', 50, 50);
+            }
+        });
+    </script>
+</body>
+</html>

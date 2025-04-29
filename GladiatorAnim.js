@@ -1,0 +1,3 @@
+class GladiatorAnim extends Animation{
+    
+}
