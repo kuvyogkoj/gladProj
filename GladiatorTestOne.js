@@ -21,8 +21,10 @@ class GladiatorTestOne extends GameObject {
         this.frameTimer = 0;
         this.frameInterval = 150; // speed of animation (ms between frames)
 
-        this.spriteSheet = new Image();
-        this.spriteSheet.src = 'images/Gladiator-Sprite Sheet.png';
+        this.spriteSheet1 = new Image();
+        this.spriteSheet2 = new Image();
+        this.spriteSheet1.src = 'images/Gladiator-Sprite Sheet.png';
+        this.spriteSheet2.src = 'images/Gladiator-Sprite Sheet-Left.png';
 
         this.frameStartT = Date.now();
     }
@@ -55,8 +57,8 @@ class GladiatorTestOne extends GameObject {
         if (!this.spriteSheet.complete) return;
         
         // Load the image path first into a vairable then load the variable
-        if(!this.facingRightTwo) this.spriteSheet.src = 'images/Gladiator-Sprite Sheet-Left.png'
-        else this.spriteSheet.src = 'images/Gladiator-Sprite Sheet.png'
+        if(this.facingRightTwo) this.spriteSheet = this.spriteSheet1;
+        else this.spriteSheet = this.spriteSheet2;
 
         ctx.drawImage(
             this.spriteSheet,
