@@ -58,7 +58,6 @@ class GladiatorTestOne extends GameObject {
         // Load the image path first into a vairable then load the variable
         if(this.facingRightTwo) this.spriteSheet = this.spriteSheet1;
         else this.spriteSheet = this.spriteSheet2;
-        if (!this.spriteSheet.complete) return;
 
         ctx.drawImage(
             this.spriteSheet,
