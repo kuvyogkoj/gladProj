@@ -16,7 +16,7 @@ class GladiatorTestOne extends GameObject {
             7, // HIT
         ];
         this.spriteCurrFrame = 0;
-        this.totalFrames = 6; // Assume 6 frames for walking (for now)
+        this.totalFrames = 6; 
         this.currentRow = 0; // 0 = idle, 1 = walking, 2 = attack, etc
         this.frameTimer = 0;
         this.frameInterval = 150; // speed of animation (ms between frames)
